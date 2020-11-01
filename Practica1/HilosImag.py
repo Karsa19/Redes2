@@ -1,11 +1,15 @@
+import os
 import threading
 import numpy as np
-import matplotlib.pyplot as plt
 from PIL import Image
 
+isfile = os.path.isfile
+join = os.path.join
 
+directory = "./imagenes"
+number_of_files = sum(1 for item in os.listdir(directory) if isfile(join(directory, item)))
 
-for i in range():
+for i in range(1,number_of_files + 1):
     pic=Image.open("./imagenes/" + i +".jpeg")
     t = threading.Thread(name="hilo"+i, target=convertirImagen(pic, i))
 
