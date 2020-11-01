@@ -6,13 +6,8 @@ from PIL import Image
 isfile = os.path.isfile
 join = os.path.join
 
-directory = "./imagenes"
+directory = "Practica1/imagenes"
 number_of_files = sum(1 for item in os.listdir(directory) if isfile(join(directory, item)))
-
-for i in range(1,number_of_files + 1):
-    pic=Image.open("./imagenes/" + i +".jpeg")
-    t = threading.Thread(name="hilo"+i, target=convertirImagen(pic, i))
-
 
 
 
@@ -34,7 +29,7 @@ def convertirImagen(pic, i):
 
     #guardarla
     red= Image.fromarray(pic_red)
-    red.save("./imagenes/"+ i +"red.jpeg")
+    red.save("Practica1/imagenes/"+ str(i) +"red.jpeg")
 
 
     #Convertir imagen a GREEN
@@ -43,8 +38,8 @@ def convertirImagen(pic, i):
     pic_green[:,:,2]=0
 
     #guardarla
-    green= Image.fromarray(pic_red)
-    green.save("./imagenes/"+ i +"green.jpeg")
+    green= Image.fromarray(pic_green)
+    green.save("Practica1/imagenes/"+ str(i) +"green.jpeg")
 
     #Convertir imagen a BLUE
     pic_blue=pic_arr.copy()
@@ -52,8 +47,14 @@ def convertirImagen(pic, i):
     pic_blue[:,:,1]=0
 
     #guardarla
-    blue= Image.fromarray(pic_red)
-    blue.save("./imagenes/"+ i +"blue.jpeg")
+    blue= Image.fromarray(pic_blue)
+    blue.save("Practica1/imagenes/"+ str(i) +"blue.jpeg")
+
+
+for i in range(1,number_of_files + 1):
+    pic=Image.open("Practica1/imagenes/" + str(i) +".jpeg")
+    t = threading.Thread(name="hilo"+ str(i), target=convertirImagen(pic, i))
+
 
 
 
