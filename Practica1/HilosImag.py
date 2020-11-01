@@ -24,6 +24,8 @@ def convertirImagen(Pic):
     pic_red=pic_arr.copy()
     pic_red[:,:,1]=0
     pic_red[:,:,2]=0
+    
+    #guardarla
 
 
     #Convertir imagen a GREEN
