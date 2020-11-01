@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
 from PIL import Image
 
 
@@ -24,7 +23,7 @@ def convertirImagen(Pic):
     pic_red=pic_arr.copy()
     pic_red[:,:,1]=0
     pic_red[:,:,2]=0
-    
+
     #guardarla
 
 
