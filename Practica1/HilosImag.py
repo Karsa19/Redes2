@@ -50,6 +50,7 @@ def convertirImagen(pic, i):
     blue= Image.fromarray(pic_blue)
     blue.save("Practica1/imagenes/"+ str(i) +"blue.jpeg")
 
+#Creacion de los hilos
 
 for i in range(1,number_of_files + 1):
     pic=Image.open("Practica1/imagenes/" + str(i) +".jpeg")
